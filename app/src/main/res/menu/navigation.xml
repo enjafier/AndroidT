@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/action_food"
-        android:title="Makanan"
-        android:icon="@drawable/ic_food" />
-    <item android:id="@+id/action_movie"
-        android:title="Movie"
-        android:icon="@drawable/ic_movie" />
-    <item android:id="@+id/action_discount"
-        android:title="Discount"
-        android:icon="@drawable/ic_discount" />
+    <item android:id="@+id/action_scan"
+        android:title="Scan"
+        android:icon="@drawable/scan" />
+    <item android:id="@+id/action_result"
+        android:title="Result"
+        android:icon="@drawable/ic_launcher_background" />
+    <item android:id="@+id/action_setting"
+        android:title="Setting"
+        android:icon="@drawable/ic_launcher_background" />
 </menu>
