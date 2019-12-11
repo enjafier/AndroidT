@@ -4,22 +4,24 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import tugas.besar.activity.ScanActivity;
 import tugas.besar.fragments.ResultFragment;
-import tugas.besar.fragments.ScanFragment;
 import tugas.besar.fragments.SettingFragment;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        loadFragment(new ScanFragment());
+        loadFragment(new ResultFragment());
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
         // beri listener pada saat item/menu bottomnavigation terpilih
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
@@ -30,7 +32,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         Fragment fragment = null;
         switch (menuItem.getItemId()) {
             case R.id.action_scan:
-                fragment = new ScanFragment();
+                Intent intent = new Intent(this,ScanActivity.class);
+                startActivity(intent);
+//                fragment = new ScanFragment();
                 break;
             case R.id.action_result:
                 fragment = new ResultFragment();
