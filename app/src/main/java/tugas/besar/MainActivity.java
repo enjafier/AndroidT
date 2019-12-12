@@ -12,6 +12,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import tugas.besar.activity.ScanActivity;
 import tugas.besar.fragments.ResultFragment;
+import tugas.besar.fragments.ScanFragment;
 import tugas.besar.fragments.SettingFragment;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -32,9 +33,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         Fragment fragment = null;
         switch (menuItem.getItemId()) {
             case R.id.action_scan:
-                Intent intent = new Intent(this,ScanActivity.class);
-                startActivity(intent);
-//                fragment = new ScanFragment();
+                fragment = new ScanFragment();
                 break;
             case R.id.action_result:
                 fragment = new ResultFragment();
