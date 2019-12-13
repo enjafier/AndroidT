@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.zxing.Result;
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -23,6 +25,7 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView;
 import tugas.besar.R;
 
 public class ScanActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
+
     private ZXingScannerView mScannerView;
 
     @Override
@@ -46,15 +49,24 @@ public class ScanActivity extends AppCompatActivity implements ZXingScannerView.
 
     @Override
     public void handleResult(Result rawResult) {
-        Log.v("TAG", rawResult.getText()); // Prints scan results
-        Log.v("TAG", rawResult.getBarcodeFormat().toString());
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Scan Result");
-        builder.setMessage(rawResult.getText());
-        AlertDialog alert1 = builder.create();
-        alert1.show();
+        try {
+            Log.v("TAG", rawResult.getText()); // Prints scan results
+            int scanResult = Log.v("TAG", rawResult.getBarcodeFormat().toString());
+            Intent intent = new Intent(this, ResultActivity.class);
+            intent.putExtra("scan", "result");
+            intent.putExtra("sresult", scanResult);
+            startActivity(intent);
 
-        mScannerView.resumeCameraPreview(this);
+//            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//            builder.setTitle("Scan Result");
+//            builder.setMessage(rawResult.getText());
+//            AlertDialog alert1 = builder.create();
+//            alert1.show();
+        }catch (Exception e){
+            e.printStackTrace();
+            Toast.makeText(getApplication(), "ERROR, TRY AGAIN !",Toast.LENGTH_SHORT);
+        }
+
     }
 
 }
