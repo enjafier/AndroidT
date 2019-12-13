@@ -37,9 +37,7 @@ public class WelcomeActivity extends AppCompatActivity {
         btnNext = findViewById(R.id.btn_next);
         layouts = new int[]{
                 R.layout.slide1,
-                R.layout.slide2,
-                R.layout.slide3,
-                R.layout.slide4};
+                R.layout.slide2,};
 
         addBottomDots(0);
 
