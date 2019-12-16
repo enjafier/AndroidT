@@ -23,15 +23,17 @@ import com.karumi.dexter.listener.single.PermissionListener;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 import tugas.besar.R;
+import tugas.besar.SharedPreference;
 
 public class ScanActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
 
     private ZXingScannerView mScannerView;
-
+    SharedPreference sharedPrefManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mScannerView = new ZXingScannerView(this);
+        sharedPrefManager = new SharedPreference(this);
         setContentView(mScannerView);
     }
     @Override
@@ -51,12 +53,12 @@ public class ScanActivity extends AppCompatActivity implements ZXingScannerView.
     public void handleResult(Result rawResult) {
         try {
             Log.v("TAG", rawResult.getText()); // Prints scan results
-            int scanResult = Log.v("TAG", rawResult.getBarcodeFormat().toString());
+            String scanResult = rawResult.getBarcodeFormat().toString();
             Intent intent = new Intent(this, ResultActivity.class);
             intent.putExtra("scan", "result");
-            intent.putExtra("sresult", scanResult);
+            intent.putExtra("sresult", rawResult.getText());
             startActivity(intent);
-
+            sharedPrefManager.saveSPString(SharedPreference.SP_RESULT, rawResult.getText());
 //            AlertDialog.Builder builder = new AlertDialog.Builder(this);
 //            builder.setTitle("Scan Result");
 //            builder.setMessage(rawResult.getText());

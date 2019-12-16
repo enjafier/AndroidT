@@ -5,8 +5,11 @@
     android:layout_height="match_parent"
     tools:context=".fragments.ScanFragment">
 
+
     <!-- TODO: Update blank fragment layout -->
+
     <Button
+
         android:id="@+id/scanbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,5 +18,6 @@
         android:textSize="30dp">
 
     </Button>
+
 
 </FrameLayout>

@@ -18,7 +18,7 @@ public class ResultActivity extends AppCompatActivity {
         teksResult = findViewById(R.id.teksResult);
 
         Bundle result = getIntent().getExtras();
-        String scanResult = result.getString("scan");
+        String scanResult = result.getString("sresult");
         teksResult.setText("Hasil : "+scanResult);
     }
 }
