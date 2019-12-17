@@ -24,4 +24,18 @@
 
     <string name="slide_4_title">GUIDE</string>
     <string name="slide_4_desc">Cari Guide Untuk Menemani Perjalananmu Agar  semakin asyik </string>
+
+    <string name="app_namee">AndroidBarcodeGenerator</string>
+    <string name="action_settings">Settings</string>
+    <string name="type_prompt">Select Type</string>
+
+    <string-array name="type_string">
+        <item>QR Code</item>
+        <item>Barcode</item>
+        <item>Data Matrix</item>
+        <item>PDF 417</item>
+        <item>Barcode-39</item>
+        <item>Barcode-93</item>
+        <item>AZTEC</item>
+    </string-array>
 </resources>

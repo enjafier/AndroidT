@@ -12,7 +12,7 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import tugas.besar.activity.ScanActivity;
+import tugas.besar.activity.GeneratorActivity;
 import tugas.besar.fragments.ResultFragment;
 import tugas.besar.fragments.ScanFragment;
 import tugas.besar.fragments.SettingFragment;
@@ -65,6 +65,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 break;
             case R.id.action_result:
                 fragment = new ResultFragment();
+                break;
+            case R.id.action_generator:
+                startActivity(new Intent(this, GeneratorActivity.class));
+                finish();
                 break;
         }
         return loadFragment(fragment);
