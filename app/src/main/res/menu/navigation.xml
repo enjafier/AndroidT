@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/action_scan"
         android:title="Scan"
-        android:icon="@drawable/scan" />
+        android:icon="@drawable/ic_search_black_24dp" />
     <item android:id="@+id/action_result"
         android:title="Result"
-        android:icon="@drawable/ic_launcher_background" />
+        android:icon="@drawable/ic_archive_black_24dp" />
     <item android:id="@+id/action_generator"
         android:title="Generator"
-        android:icon="@drawable/ic_launcher_background" />
+        android:icon="@drawable/ic_code_black_24dp" />
 </menu>

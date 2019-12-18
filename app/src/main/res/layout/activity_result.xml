@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/zxing_transparent"
+    android:background="@drawable/splash_backgroud"
     tools:context=".activity.ResultActivity">
 
     <TextView
         android:id="@+id/teks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
         android:padding="25dp"
         android:text="Hasil Scan :"
         android:textSize="20dp">
@@ -20,17 +22,18 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/teks">
 
         <TextView
             android:id="@+id/teksResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:padding="20dp"
             android:text="hmmmmmmmmmmmmmmmmmmmmm"
-            android:textSize="15dp"
             android:textAlignment="center"
-            android:padding="20dp">
+            android:textSize="20dp">
 
         </TextView>
     </androidx.cardview.widget.CardView>
@@ -40,6 +43,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/card"
+        android:backgroundTint="@color/buttonscan"
+        android:textStyle="bold"
         android:padding="20dp"
         android:layout_centerHorizontal="true"
         android:text="Back">

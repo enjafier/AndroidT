@@ -17,7 +17,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Scan Now"
-        android:textSize="30dp">
+        android:textSize="30dp"
+        android:backgroundTint="@color/buttonscan">
 
     </Button>
 
