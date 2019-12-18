@@ -58,7 +58,7 @@ public class ScanActivity extends AppCompatActivity implements ZXingScannerView.
             intent.putExtra("scan", "result");
             intent.putExtra("sresult", rawResult.getText());
             startActivity(intent);
-            sharedPrefManager.saveSPString(SharedPreference.SP_RESULT, rawResult.getText());
+            sharedPrefManager.saveSPString(SharedPreference.SCAN_RESULT, rawResult.getText());
 //            AlertDialog.Builder builder = new AlertDialog.Builder(this);
 //            builder.setTitle("Scan Result");
 //            builder.setMessage(rawResult.getText());

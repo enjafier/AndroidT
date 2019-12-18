@@ -4,8 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.GeneratorActivity"
-    tools:showIn="@layout/activity_generator">
+    tools:context=".fragments.GeneratorFragment"
+    tools:showIn="@layout/fragment_generator">
 
     <RelativeLayout
         android:layout_width="match_parent"

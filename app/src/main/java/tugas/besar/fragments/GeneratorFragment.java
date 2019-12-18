@@ -1,13 +1,17 @@
-package tugas.besar.activity;
+package tugas.besar.fragments;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
+
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,7 +26,10 @@ import com.google.zxing.common.BitMatrix;
 
 import tugas.besar.R;
 
-public class GeneratorActivity extends AppCompatActivity {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class GeneratorFragment extends Fragment {
 
     private String message = "";
     private String type = "";
@@ -41,17 +48,22 @@ public class GeneratorActivity extends AppCompatActivity {
 
     private Bitmap myBitmap;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_generator);
+    public GeneratorFragment() {
+        // Required empty public constructor
+    }
 
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_generator, container, false);
         message = "";
         type = "QR Code";
-        button_generate = (Button) findViewById(R.id.generate_button);
-        editText1 = (EditText) findViewById(R.id.edittext2);
-        type_spinner = (Spinner) findViewById(R.id.type_spinner);
-        imageView = (ImageView) findViewById(R.id.image_imageview);
+        button_generate = view.findViewById(R.id.generate_button);
+        editText1 = view.findViewById(R.id.edittext2);
+        type_spinner = view.findViewById(R.id.type_spinner);
+        imageView = view.findViewById(R.id.image_imageview);
 
         type_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -60,11 +72,6 @@ public class GeneratorActivity extends AppCompatActivity {
                 {
                     case 0: type = "QR Code";break;
                     case 1: type = "Barcode";break;
-                    case 2: type = "Data Matrix";break;
-                    case 3: type = "PDF 417";break;
-                    case 4: type = "Barcode-39";break;
-                    case 5: type = "Barcode-93";break;
-                    case 6: type = "AZTEC";break;
                     default: type = "QR Code";break;
                 }
                 Log.d("type", type);
@@ -84,7 +91,7 @@ public class GeneratorActivity extends AppCompatActivity {
 
                 if (message.equals("") || type.equals(""))
                 {
-                    AlertDialog.Builder dialog = new AlertDialog.Builder(GeneratorActivity.this);
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(v.getContext());
                     dialog.setTitle("Error");
                     dialog.setMessage("Invalid input!");
                     dialog.setCancelable(false);
@@ -116,7 +123,7 @@ public class GeneratorActivity extends AppCompatActivity {
                 }
             }
         });
-
+        return view;
     }
 
     public Bitmap CreateImage(String message, String type) throws WriterException
@@ -127,11 +134,6 @@ public class GeneratorActivity extends AppCompatActivity {
         {
             case "QR Code": bitMatrix = new MultiFormatWriter().encode(message, BarcodeFormat.QR_CODE, size, size);break;
             case "Barcode": bitMatrix = new MultiFormatWriter().encode(message, BarcodeFormat.CODE_128, size_width, size_height);break;
-            case "Data Matrix": bitMatrix = new MultiFormatWriter().encode(message, BarcodeFormat.DATA_MATRIX, size, size);break;
-            case "PDF 417": bitMatrix = new MultiFormatWriter().encode(message, BarcodeFormat.PDF_417, size_width, size_height);break;
-            case "Barcode-39":bitMatrix = new MultiFormatWriter().encode(message, BarcodeFormat.CODE_39, size_width, size_height);break;
-            case "Barcode-93":bitMatrix = new MultiFormatWriter().encode(message, BarcodeFormat.CODE_93, size_width, size_height);break;
-            case "AZTEC": bitMatrix = new MultiFormatWriter().encode(message, BarcodeFormat.AZTEC, size, size);break;
             default: bitMatrix = new MultiFormatWriter().encode(message, BarcodeFormat.QR_CODE, size, size);break;
         }
         int width = bitMatrix.getWidth();
